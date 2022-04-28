@@ -3,8 +3,9 @@
  * Author: 刘 鹏
  * Email: littleNewton6@outlook.com
  * Date: 2021, Aug. 21
- * Copyright: No copyright. You can use this code for anything with no warranty.
+ * Copyright: No copyright. You can use this code for anything with no warranty
 #>
+
 
 #------------------------------- Import Modules BEGIN -------------------------------
 # 引入 posh-git
@@ -21,12 +22,12 @@ Set-PoshPrompt agnosterplus
 #------------------------------- Import Modules END   -------------------------------
 
 
-#------------------------------- Bash Setting Begin--------------------------------------
-$VIMPATH = "D:\Git\usr\bin\vim.exe"
-$SCRIPTPATH = "D:\Git\usr\share\vim"
+#------------------------------- VIM Setting Begin--------------------------------------
+$VIMPATH    = "F:\soft\Git\usr\bin\vim.exe"
 Set-Alias vi   $VIMPATH
 Set-Alias vim  $VIMPATH
-#------------------------------- Bash Setting END----------------------------------------
+#------------------------------- VIM Setting END----------------------------------------
+
 
 #-------------------------------  Set Hot-keys BEGIN  -------------------------------
 # 设置预测文本来源为历史记录
@@ -38,6 +39,21 @@ Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 # 设置 Tab 为菜单补全和 Intellisense
 Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
 
+#Set the color for Prediction (auto-suggestion)
+<#
+  Set-PSReadLineOption -Colors @{
+  Command            = 'Magenta'
+  Number             = 'DarkBlue'
+  Member             = 'DarkBlue'
+  Operator           = 'DarkBlue'
+  Type               = 'DarkBlue'
+  Variable           = 'DarkGreen'
+  Parameter          = 'DarkGreen'
+  ContinuationPrompt = 'DarkBlue'
+  Default            = 'DarkBlue'
+  InlinePrediction   = 'Gray'
+}
+#>
 
 #-------------------------------  Set Hot-keys END    -------------------------------
 
@@ -77,7 +93,6 @@ function Update-Packages {
 
 
 #-------------------------------   Set Alias BEGIN    -------------------------------
-
 # 1. 编译函数 make
 function MakeThings {
 	nmake.exe $args -nologo
@@ -92,8 +107,14 @@ function ListDirectory {
 	(Get-ChildItem).Name
 	Write-Host("")
 }
-Set-Alias -Name ls -Value ListDirectory
-Set-Alias -Name ll -Value Get-ChildItem
+function ListLsDirectory {
+ C:\Windows\System32\ls.exe $args
+}
+function ListLLDirectory {
+ C:\Windows\System32\ls.exe -l $args
+}
+Set-Alias -Name ls -Value ListLsDirectory
+Set-Alias -Name ll -Value ListLLDirectory
 
 # 4. 打开当前工作目录
 function OpenCurrentFolder {
@@ -108,21 +129,18 @@ function OpenCurrentFolder {
 }
 Set-Alias -Name opd -Value OpenCurrentFolder
 
-
-set-Alias open "D:\Notepad++\notepad++.exe"
-#-------------------------------    Set Alias END     -------------------------------
-
+set-Alias open "D:\notepad++\notepad++.exe"
 
 function Get-SSH-CONFIGS {
-	cat ~/.ssh/config | rg Host -A 3
+ cat ~/.ssh/config | rg Host -A 3
 }
 
 function GREP-FUNC {
-	$Input | rg $args
+ $Input | rg $args
 }
 Set-Alias -Name grep -Value GREP-FUNC
 Set-Alias -Name ssha -Value Get-SSH-CONFIGS
-
+#-------------------------------    Set Alias END     -------------------------------
 
 
 
@@ -147,3 +165,12 @@ function Get-IPv6Routes {
 }
 Set-Alias -Name getip6 -Value Get-IPv6Routes
 #-------------------------------    Set Network END     -------------------------------
+# Import the Chocolatey Profile that contains the necessary code to enable
+# tab-completions to function for `choco`.
+# Be aware that if you are missing these lines from your profile, tab completion
+# for `choco` will not function.
+# See https://ch0.co/tab-completion for details.
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+  Import-Module "$ChocolateyProfile"
+}

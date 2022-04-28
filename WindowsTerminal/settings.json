@@ -219,7 +219,7 @@
             "command": "unbound",
             "keys": "ctrl+numpad_minus"
         },
-        {
+		{
             "command": "unbound",
             "keys": "ctrl+shift+w"
         },
@@ -238,11 +238,11 @@
             "keys": "ctrl+shift+n"
         },
         {
-            "command": "paste"
-        },
-        {
             "command": "duplicateTab",
             "keys": "ctrl+shift+d"
+        },
+        {
+            "command": "paste"
         },
         {
             "command": 
@@ -252,15 +252,15 @@
             "keys": "alt+shift+f11"
         },
         {
-            "command": "toggleFocusMode",
-            "keys": "alt+shift+f12"
-        },
-        {
             "command": 
             {
                 "action": "prevTab"
             },
             "keys": "ctrl+tab"
+        },
+        {
+            "command": "toggleFocusMode",
+            "keys": "alt+shift+f12"
         },
         {
             "command": 
@@ -269,7 +269,7 @@
             },
             "keys": "shift+tab"
         },
-        {
+		{
             "command": "closePane",
             "keys": "alt+shift+w"
         }
@@ -286,53 +286,45 @@
     {
         "defaults": 
         {
+            "backgroundImageOpacity": 0.14999999999999999,
             "closeOnExit": "never",
-            "colorScheme": "shades-of-purple",
+            "colorScheme": "WeiWan-Windows-Terminal",
             "font": 
             {
-                "face": "FuraCode Nerd Font",
-                "size": 14
+                "face": "FiraCode Nerd Font",
+                "size": 16
             },
-            "opacity": 70,
+            "opacity": 95,
+            "padding": "8",
             "startingDirectory": "%USERPROFILE%\\Desktop",
             "useAcrylic": true
         },
         "list": 
         [
             {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "\u547d\u4ee4\u63d0\u793a\u7b26"
             },
             {
-                "commandline": "D:/Git/bin/bash.exe -li",
-                "guid": "{0caa0add-35ce-5f56-a8ff-afceeeaa6102}",
-                "hidden": false,
-                "icon": "D:/Git/mingw64/share/git/git-for-windows.ico",
-                "name": "Git Bash"
-            },
-            {
-                "closeOnExit": "never",
-                "colorScheme": "shades-of-purple",
-                "cursorColor": "#FFFFFF",
-                "font": 
-                {
-                    "face": "FiraCode Nerd Font",
-                    "size": 14
-                },
-                "guid": "{4d4cc780-cacb-5b6f-a183-29b5f6cdcd23}",
-                "hidden": false,
-                "historySize": 9001,
-                "name": "CentOS",
-                "padding": "5, 5, 20, 25",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "colorScheme": "shades-of-purple",
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "name": "PowerShell",
                 "source": "Windows.Terminal.PowershellCore"
+            },
+            {
+                "guid": "{fc92b12d-5e99-527f-af52-87b60adc0f71}",
+                "hidden": false,
+                "name": "centos7",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "commandline": "F:\\soft\\Git\\bin\\bash.exe",
+                "guid": "{a46b5bbd-41f4-4889-b09f-74232081ae80}",
+                "hidden": false,
+                "icon": "F:\\soft\\Git\\mingw64\\share\\git\\git-for-windows.ico",
+                "name": "GitBash"
             }
         ]
     },
@@ -385,7 +377,7 @@
             "yellow": "#C19C00"
         },
         {
-            "background": "#283033",
+            "background": "#1C212B",
             "black": "#000000",
             "blue": "#6666E9",
             "brightBlack": "#666666",
@@ -398,37 +390,14 @@
             "brightYellow": "#E5E500",
             "cursorColor": "#FFFFFF",
             "cyan": "#00A6B2",
-            "foreground": "#00FF00",
+            "foreground": "#02F2FF",
             "green": "#00A600",
             "name": "Homebrew",
             "purple": "#B200B2",
             "red": "#FC5275",
-            "selectionBackground": "#FFFFFF",
+            "selectionBackground": "#B77AFF",
             "white": "#BFBFBF",
             "yellow": "#999900"
-        },
-        {
-            "background": "#1D262A",
-            "black": "#435B67",
-            "blue": "#37B6FF",
-            "brightBlack": "#A1B0B8",
-            "brightBlue": "#70CFFF",
-            "brightCyan": "#9AFFE6",
-            "brightGreen": "#ADF7BE",
-            "brightPurple": "#FC669B",
-            "brightRed": "#FC746D",
-            "brightWhite": "#FFFFFF",
-            "brightYellow": "#FEE16C",
-            "cursorColor": "#EAEAEA",
-            "cyan": "#59FFD1",
-            "foreground": "#E7EBED",
-            "green": "#5CF19E",
-            "name": "MaterialDesignColors",
-            "purple": "#FC226E",
-            "red": "#FC3841",
-            "selectionBackground": "#4E6A78",
-            "white": "#FFFFFF",
-            "yellow": "#FED032"
         },
         {
             "background": "#282C34",
@@ -592,25 +561,48 @@
             "yellow": "#808000"
         },
         {
-            "background": "#3D3D3D",
+            "background": "#152533",
             "black": "#000000",
             "blue": "#6943FF",
-            "brightBlack": "#686868",
+            "brightBlack": "#FFFFFF",
+            "brightBlue": "#328BFF",
+            "brightCyan": "#C4FB9E",
+            "brightGreen": "#47E028",
+            "brightPurple": "#FF77FF",
+            "brightRed": "#F92A1C",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#F1D000",
+            "cursorColor": "#FAD000",
+            "cyan": "#FFA454",
+            "foreground": "#FFF1FB",
+            "green": "#3AD900",
+            "name": "WeiWan-Windows-Terminal",
+            "purple": "#FF2C70",
+            "red": "#D90429",
+            "selectionBackground": "#A3AAFF",
+            "white": "#C7C7C7",
+            "yellow": "#FFE700"
+        },
+        {
+            "background": "#041E21",
+            "black": "#000000",
+            "blue": "#6943FF",
+            "brightBlack": "#FFFFFF",
             "brightBlue": "#6871FF",
-            "brightCyan": "#79E8FB",
+            "brightCyan": "#C4FB9E",
             "brightGreen": "#43D426",
             "brightPurple": "#FF77FF",
             "brightRed": "#F92A1C",
             "brightWhite": "#FFFFFF",
             "brightYellow": "#F1D000",
             "cursorColor": "#FAD000",
-            "cyan": "#00C5C7",
-            "foreground": "#CCFFD8",
+            "cyan": "#FFA454",
+            "foreground": "#9CFFC3",
             "green": "#3AD900",
             "name": "shades-of-purple",
             "purple": "#FF2C70",
             "red": "#D90429",
-            "selectionBackground": "#B362FF",
+            "selectionBackground": "#A3AAFF",
             "white": "#C7C7C7",
             "yellow": "#FFE700"
         },

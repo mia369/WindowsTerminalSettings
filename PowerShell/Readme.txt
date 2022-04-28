@@ -1,3 +1,5 @@
+参考: https://zhuanlan.zhihu.com/p/137595941
+
 # 1. 安装 PSReadline 包，该插件可以让命令行很好用，类似 zsh
 Install-Module -Name PSReadLine  -Scope CurrentUser
 
